@@ -1,0 +1,10 @@
+<label class="toggle toggle--<%= @size %> <%= @css %>">
+  <input
+    class="toggle__input"
+    type="checkbox"
+    <%= @checked && 'checked' %>
+    name="<%= @name %>"
+    value="<%= @value %>"
+  >
+  <span class="toggle__slider"></span>
+</label>

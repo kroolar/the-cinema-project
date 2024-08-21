@@ -1,0 +1,10 @@
+
+<div class="flex flex-col <%= @class_name %>">
+  <%= render Label::LabelComponent.new(text: @label ) %>
+
+  <input
+    class="input shadow-sm"
+    name="<%= @name %>"
+    type="<%= type %>"
+  />
+</div>

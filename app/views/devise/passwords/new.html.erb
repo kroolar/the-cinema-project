@@ -1,16 +1,25 @@
-<h2>Forgot your password?</h2>
+<%= ui :box,
+        class_name: 'w-96 mx-auto mt-40',
+        title: 'Password Reset',
+        description: 'Forgot your password?' do
+%>
+  <%= ui :form, action: '/users/password' do %>
+    <%= ui :input,
+            label: 'Email',
+            class_name: 'mt-4',
+            name: 'user[email]'
+    %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= ui :link,
+            text: 'Sign In',
+            href: '/users/sign_in',
+            class_name: 'flex justify-end mt-1 font-light'
+    %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
+    <%= ui :button,
+            class_name: 'w-full mt-4',
+            text: 'Reset',
+            type: :submit
+    %>
+  <% end %>
 <% end %>
-
-<%= render "devise/shared/links" %>

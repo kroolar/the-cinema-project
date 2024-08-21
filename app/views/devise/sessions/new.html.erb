@@ -1,26 +1,44 @@
-<h2>Log in</h2>
+<%= ui :box,
+        class_name: 'w-96 mx-auto mt-40',
+        title: "Sign In",
+        description: "Enter your email below to sign in." do
+%>
+  <%= ui :form, action: "/users/sign_in" do %>
+    <%= ui :input,
+            class_name: 'mt-4',
+            label: 'Email',
+            name: 'user[email]'
+    %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <%= ui :input,
+            class_name: 'mt-4 mb-1',
+            label: 'Password',
+            name: 'user[password]',
+            type: 'password'
+    %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+    <%= ui :link,
+            class_name: 'mb-4 font-light flex justify-end mt-1',
+            href: '/users/password/new',
+            text: 'Forgot your password?'
+    %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
+    <%= ui :button,
+            class_name: 'w-full',
+            text: 'Sign In',
+            type: :submit
+    %>
+
+    <%= ui :row, class_name: 'mt-4 text-center' do %>
+      <%= ui :text,
+              text: "Don't have an account?",
+              class_name: 'text-gray-600 text-sm font-light mt-4 inline mx-auto w-full text-center'
+      %>
+
+      <%= ui :link,
+              href: '/users/sign_up',
+              text: 'Sign Up'
+      %>
+    <% end %>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
 <% end %>
-
-<%= render "devise/shared/links" %>

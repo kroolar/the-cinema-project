@@ -1,0 +1,249 @@
+:root {
+  --stone-50: #fafaf9;
+  --stone-100: #f5f5f4;
+  --stone-200: #e7e5e4;
+  --stone-300: #d6d3d1;
+  --stone-400: #a8a29e;
+  --stone-500: #78716c;
+  --stone-600: #57534e;
+  --stone-700: #44403c;
+  --stone-800: #292524;
+  --stone-900: #1c1917;
+  --stone-950: #0c0a09;
+  --primary-color: #292524;
+}
+
+* {
+  font-family: 'Poppins';
+}
+
+.button {
+  background-color: var(--primary-color);
+  color: var(--stone-100);
+  display: flex;
+  line-height: 1;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: .2s;
+}
+
+.button:hover {
+  opacity: 90%;
+}
+
+.button--xs {
+  border-radius: 4px;
+  font-size: .6rem;
+  height: 1.5rem;
+  padding: 0 .6rem;
+}
+
+.button--sm {
+  border-radius: 4px;
+  font-size: .8rem;
+  height: 1.75rem;
+  padding: 0 .8rem;
+}
+
+.button--md {
+  border-radius: 4px;
+  font-size: .9rem;
+  height: 2rem;
+  padding: 0 .75rem;
+}
+
+.button--lg {
+  border-radius: 4px;
+  font-size: 1.2rem;
+  height: 2.25rem;
+  padding: 0 1rem;
+}
+
+.button--xl {
+  border-radius: 4px;
+  font-size: 1.4rem;
+  height: 2.5rem;
+  padding: 0 1.25rem;
+}
+
+.button--outline {
+  background-color: white;
+  color: var(--stone-900);
+  display: flex;
+  line-height: 1;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: .2s;
+  border: 1px solid var(--stone-200);
+}
+
+.button--outline:hover {
+  background-color: var(--stone-100);
+}
+
+
+
+
+
+
+.toggle {
+  position: relative;
+  display: inline-flex;
+  width: 4rem;
+  height: 2rem;
+}
+
+.toggle .toggle__input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle__slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid var(--stone-800);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 2rem;
+}
+
+.toggle__slider:before {
+  position: absolute;
+  content: "";
+  left: .1rem;
+  bottom: .1rem;
+  background-color: var(--stone-800);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.toggle__input:checked + .toggle__slider {
+  background-color: var(--stone-800);
+}
+
+/* input:focus + .slider {
+  box-shadow: 0 0 1px var(--stone-800);
+} */
+
+.toggle__input:checked + .toggle__slider:before {
+  -webkit-transform: translateX(2rem);
+  -ms-transform: translateX(2rem);
+  transform: translateX(2rem);
+  background-color: var(--stone-100);
+}
+
+.toggle--xs {
+  width: 3rem;
+  height: 1.5rem;
+}
+
+.toggle--sm {
+  width: 3.5rem;
+  height: 1.75rem;
+}
+
+.toggle--md {
+  width: 4rem;
+  height: 2rem;
+}
+
+.toggle--lg {
+  width: 4.5rem;
+  height: 2.25rem;
+}
+
+.toggle--xl {
+  width: 5rem;
+  height: 2.5rem;
+}
+
+
+.toggle--xs .toggle__slider:before {
+  height: 1rem;
+  width: 1rem;
+}
+
+.toggle--sm .toggle__slider:before {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.toggle--md .toggle__slider:before {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.toggle--lg .toggle__slider:before {
+  height: 1.75rem;
+  width: 1.75rem;
+}
+
+.toggle--xl .toggle__slider:before {
+  height: 2rem;
+  width: 2rem;
+}
+
+.toggle--xs .toggle__input:checked + .toggle__slider:before {
+  -webkit-transform: translateX(1.5rem);
+  -ms-transform: translateX(1.5rem);
+  transform: translateX(1.5rem);
+}
+
+.toggle--sm .toggle__input:checked + .toggle__slider:before {
+  -webkit-transform: translateX(1.75rem);
+  -ms-transform: translateX(1.75rem);
+  transform: translateX(1.75rem);
+}
+
+.toggle--md .toggle__input:checked + .toggle__slider:before {
+  -webkit-transform: translateX(2rem);
+  -ms-transform: translateX(2rem);
+  transform: translateX(2rem);
+}
+
+.toggle--lg .toggle__input:checked + .toggle__slider:before {
+  -webkit-transform: translateX(2.25rem);
+  -ms-transform: translateX(2.25rem);
+  transform: translateX(2.25rem);
+}
+
+.toggle--xl .toggle__input:checked + .toggle__slider:before {
+  -webkit-transform: translateX(2.5rem);
+  -ms-transform: translateX(2.5rem);
+  transform: translateX(2.5rem);
+}
+
+.input {
+  border-radius: 4px;
+  border: 1px solid var(--stone-300);
+  height: 2rem;
+  padding: 0 .5rem;
+  /* background-color: var(--stone-50); */
+}
+
+.box {
+  border-radius: 4px;
+  border: 1px solid var(--stone-300);
+  padding: 1.5rem;
+  background-color: white;
+}
+
+@keyframes hide {
+  0% { opacity: 100%; }
+  99% { opacity: 100%; }
+  100% { opacity: 0%; }
+}
+
+.alert {
+  animation: hide 5s forwards;
+}

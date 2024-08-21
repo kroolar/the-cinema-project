@@ -1,29 +1,45 @@
-<h2>Sign up</h2>
+<%= ui :box,
+        class_name: 'w-96 mx-auto mt-40',
+        title: "Sign Up",
+        description: "Enter details below to create your account." do
+%>
+  <%= ui :form, action: '/users' do %>
+    <%= ui :input,
+            class_name: 'mt-4',
+            label: 'Email',
+            name: 'user[email]'
+    %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= ui :input,
+            class_name: 'mt-2 mb-1',
+            label: 'Password',
+            name: 'user[password]',
+            type: 'password'
+    %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <%= ui :input,
+            class_name: 'mt-2 mb-4',
+            label: 'Password Confirmation',
+            name: 'user[password_confirmation]',
+            type: 'password'
+    %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <%= ui :button,
+            class_name: 'w-full',
+            text: 'Sign Up',
+            type: :submit
+    %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <%= ui :row, class_name: 'mt-4 text-center' do %>
+      <%= ui :text,
+              text: "Already have an account?",
+              class_name: 'text-gray-600 text-sm font-light mt-4 inline mx-auto w-full text-center'
+      %>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+      <%= ui :link,
+              href: '/users/sign_in',
+              text: 'Sign In'
+      %>
+    <% end %>
+  <% end %>
 <% end %>
-
-<%= render "devise/shared/links" %>

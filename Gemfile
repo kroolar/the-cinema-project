@@ -70,3 +70,6 @@ end
 
 gem 'rubocop'
 gem "devise"
+
+gem "view_component"
+gem "pry"

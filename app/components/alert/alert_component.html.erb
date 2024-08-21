@@ -1,0 +1,31 @@
+<div class="
+  alert
+  absolute
+  right-10
+  bottom-10
+  inline-flex
+  border
+  font-medium
+  <%= @type == :success && 'border-emerald-700 text-green-100 bg-emerald-600'%>
+  <%= @type == :info && 'bg-sky-600 text-sky-100 border-sky-700'%>
+  <%= @type == :error && 'bg-rose-600 text-red-100 border-red-700'%>
+  <%= @type == :warning && 'bg-yellow-600 text-yellow-100 border-yellow-700'%>
+  p-2
+  rounded
+  my-2
+  font-base
+  pl-3
+  pr-4
+">
+  <i class="material-icons material-icons-outlined mr-2 <%= @class_name %>
+  ">
+    <%= @type == :success ? 'check_circle' : nil %>
+    <%= @type == :info ? 'info' : nil %>
+    <%= @type == :error ? 'dangerous' : nil %>
+    <%= @type == :warning ? 'info' : nil %>
+  </i>
+
+  <div>
+    <%= @text %>
+  </div>
+</div>
