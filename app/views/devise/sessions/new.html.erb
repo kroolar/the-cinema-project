@@ -1,44 +1,42 @@
-<%= ui :box,
-        class_name: 'w-96 mx-auto mt-40',
-        title: "Sign In",
-        description: "Enter your email below to sign in." do
+<%=
+  Box(
+    class_name: 'w-96 mx-auto mt-40',
+    title: "Sign In",
+    description: "Enter your email below to sign in."
+  ){
+    Form(action: new_user_session_path) {
+      Input(
+        class_name: 'my-4',
+        label: 'Email',
+        name: 'user[email]'
+      )+
+
+      Input(
+        label: 'Password',
+        name: 'user[password]',
+        type: 'password'
+      )+
+
+      Link(
+        class_name: 'mb-4 font-light flex justify-end mt-2',
+        href: new_user_password_path,
+        text: 'Forgot your password?'
+      )+
+
+      Button(
+        class_name: 'w-full',
+        text: 'Sign In',
+        type: :submit
+      )+
+
+      Row(class_name: 'mt-4 flex items-center justify-center') {
+        Text(
+          text: "Don't have an account?",
+          class_name: 'text-gray-600 text-sm font-light mr-1'
+        )+
+
+        Link(href: new_user_registration_path, text: 'Sign Up')
+      }
+    }
+  }
 %>
-  <%= ui :form, action: "/users/sign_in" do %>
-    <%= ui :input,
-            class_name: 'mt-4',
-            label: 'Email',
-            name: 'user[email]'
-    %>
-
-    <%= ui :input,
-            class_name: 'mt-4 mb-1',
-            label: 'Password',
-            name: 'user[password]',
-            type: 'password'
-    %>
-
-    <%= ui :link,
-            class_name: 'mb-4 font-light flex justify-end mt-1',
-            href: '/users/password/new',
-            text: 'Forgot your password?'
-    %>
-
-    <%= ui :button,
-            class_name: 'w-full',
-            text: 'Sign In',
-            type: :submit
-    %>
-
-    <%= ui :row, class_name: 'mt-4 text-center' do %>
-      <%= ui :text,
-              text: "Don't have an account?",
-              class_name: 'text-gray-600 text-sm font-light mt-4 inline mx-auto w-full text-center'
-      %>
-
-      <%= ui :link,
-              href: '/users/sign_up',
-              text: 'Sign Up'
-      %>
-    <% end %>
-  <% end %>
-<% end %>

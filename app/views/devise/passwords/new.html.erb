@@ -1,25 +1,27 @@
-<%= ui :box,
-        class_name: 'w-96 mx-auto mt-40',
-        title: 'Password Reset',
-        description: 'Forgot your password?' do
+<%=
+  Box(
+    class_name: 'w-96 mx-auto mt-40',
+    title: 'Password Reset',
+    description: 'Forgot your password?'
+  ) {
+    Form(action: user_password_path) {
+      Input(
+        label: 'Email',
+        class_name: 'mt-4',
+        name: 'user[email]'
+      )+
+
+      Link(
+        text: 'Sign In',
+        href: new_user_session_path,
+        class_name: 'flex justify-end mt-1'
+      )+
+
+      Button(
+        class_name: 'w-full mt-4',
+        text: 'Reset',
+        type: :submit
+      )
+    }
+  }
 %>
-  <%= ui :form, action: '/users/password' do %>
-    <%= ui :input,
-            label: 'Email',
-            class_name: 'mt-4',
-            name: 'user[email]'
-    %>
-
-    <%= ui :link,
-            text: 'Sign In',
-            href: '/users/sign_in',
-            class_name: 'flex justify-end mt-1 font-light'
-    %>
-
-    <%= ui :button,
-            class_name: 'w-full mt-4',
-            text: 'Reset',
-            type: :submit
-    %>
-  <% end %>
-<% end %>
