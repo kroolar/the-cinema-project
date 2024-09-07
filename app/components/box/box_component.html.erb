@@ -1,9 +1,11 @@
 <div class="box shadow-sm rounded-lg <%= class_name %>">
-  <% if @title %>
-    <div class="font-semibold text-2xl text-stone-800">
-      <%= @title %>
-    </div>
-  <% end %>
+  <div>
+    <% if @title %>
+      <div class="font-semibold text-2xl text-stone-800">
+        <%= @title %>
+      </div>
+    <% end %>
+  </div>
 
   <% if @description %>
     <div class="text-xs text-stone-500 mt-1">

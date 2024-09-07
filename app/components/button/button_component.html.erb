@@ -3,6 +3,9 @@
   button--<%= @var %>
   shadow-sm
 "
-  type="<%= @type %>">
+  type="<%= @type %>"
+  data-controller="<%= controller %>"
+  data-action="<%= action %>"
+  >
   <%= @text || content %>
 </button>
