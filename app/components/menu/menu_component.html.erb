@@ -1,27 +1,55 @@
 <div class="flex">
-  <%= render Box::BoxComponent.new class_name: 'w-80 rounded-none' do %>
+  <%= render Box::BoxComponent.new class_name: 'w-80 rounded-none flex flex-col h-screen' do %>
     <div class="flex">
       <%= render Icon::IconComponent.new icon: :account_circle, class_name: 'text-5xl' %>
 
-    <div class="ml-3 leading-none flex-col items-center justify-center">
-      <div class="text-xl text-stone-800">Artur Krol</div>
-      <div class="text-stone-500">kroolar@gmail.com</div>
+      <div class="ml-3 leading-none flex-col items-center justify-center">
+        <div class="text-xl text-stone-800">Artur Krol</div>
+        <div class="text-stone-500">kroolar@gmail.com</div>
+      </div>
     </div>
-  </div>
 
-    <%= render Row::RowComponent.new class_name: 'p-2 mt-20 items-center rounded duration-200 border border-white cursor-pointer hover:bg-stone-50 hover:border-stone-200' do %>
-      <%= render Icon::IconComponent.new icon: :dashboard, class_name: 'text-2xl mr-2' %>
-      <%= render Text::TextComponent.new text: 'Dashboard', class_name: 'text-lg' %>
+    <a href="/">
+      <%= render Row::RowComponent.new class_name: 'p-2 mt-64 items-center rounded duration-200 border border-white cursor-pointer hover:bg-stone-50 hover:border-stone-200' do %>
+        <%= render Icon::IconComponent.new icon: :dashboard, class_name: 'text-2xl mr-2' %>
+        <%= render Text::TextComponent.new text: 'Dashboard', class_name: 'text-lg' %>
+      <% end %>
+    </a>
+
+    <a href="/movies">
+      <%= render Row::RowComponent.new class_name: 'p-2 items-center rounded duration-200 border border-white cursor-pointer hover:bg-stone-50 hover:border-stone-200' do %>
+        <%= render Icon::IconComponent.new icon: :movie, class_name: 'text-2xl mr-2' %>
+        <%= render Text::TextComponent.new text: 'Movies', class_name: 'text-lg' %>
+      <% end %>
+    </a>
+
+    <%= render Row::RowComponent.new class_name: 'p-2 items-center rounded duration-200 border border-white cursor-pointer hover:bg-stone-50 hover:border-stone-200' do %>
+      <%= render Icon::IconComponent.new icon: :meeting_room, class_name: 'text-2xl mr-2' %>
+      <%= render Text::TextComponent.new text: 'Showrooms', class_name: 'text-lg' %>
     <% end %>
 
     <%= render Row::RowComponent.new class_name: 'p-2 items-center rounded duration-200 border border-white cursor-pointer hover:bg-stone-50 hover:border-stone-200' do %>
-      <%= render Icon::IconComponent.new icon: :movie, class_name: 'text-2xl mr-2' %>
-      <%= render Text::TextComponent.new text: 'Movies', class_name: 'text-lg' %>
+      <%= render Icon::IconComponent.new icon: :slideshow, class_name: 'text-2xl mr-2' %>
+      <%= render Text::TextComponent.new text: 'Showtimes', class_name: 'text-lg' %>
     <% end %>
 
-    <%= render Row::RowComponent.new class_name: 'p-2 mt-[36rem] items-center rounded duration-200 border border-white cursor-pointer hover:bg-stone-50 hover:border-stone-200' do %>
-      <%= render Icon::IconComponent.new icon: :logout, class_name: 'text-2xl mr-2' %>
-      <%= render Text::TextComponent.new text: 'Sign Out', class_name: 'text-lg' %>
+    <%= render Row::RowComponent.new class_name: 'p-2 items-center rounded duration-200 border border-white cursor-pointer hover:bg-stone-50 hover:border-stone-200' do %>
+      <%= render Icon::IconComponent.new icon: :person, class_name: 'text-2xl mr-2' %>
+      <%= render Text::TextComponent.new text: 'Employees', class_name: 'text-lg' %>
+    <% end %>
+
+    <%= render Row::RowComponent.new class_name: 'p-2 items-center rounded duration-200 border border-white cursor-pointer hover:bg-stone-50 hover:border-stone-200' do %>
+      <%= render Icon::IconComponent.new icon: :settings, class_name: 'text-2xl mr-2' %>
+      <%= render Text::TextComponent.new text: 'Settings', class_name: 'text-lg' %>
+    <% end %>
+
+    <div class="flex-1"></div>
+
+    <%= button_to(destroy_user_session_path, method: :delete, class: 'w-full') do %>
+      <%= render Row::RowComponent.new class_name: 'p-2 items-center rounded duration-200 border border-white cursor-pointer hover:bg-stone-50 hover:border-stone-200' do %>
+        <%= render Icon::IconComponent.new icon: :logout, class_name: 'text-2xl mr-2' %>
+        <%= render Text::TextComponent.new text: 'Sign Out', class_name: 'text-lg' %>
+      <% end %>
     <% end %>
   <% end %>
 </div>
