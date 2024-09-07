@@ -1,0 +1,112 @@
+<%= Controller(name: :hello) do %>
+  <div data-hello-target="popup" class="hidden">
+    <div
+      class="bg-black absolute opacity-10 h-screen w-screen left-0 top-0"
+      data-action='click->hello#togglePopup'
+    ></div>
+
+    <%= Box(class_name: 'absolute w-[20rem] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2') do
+      Row {
+        Text(
+          class_name: 'font-semibold text-2xl text-stone-800 flex-1',
+          text: 'Create Movie'
+        )+
+
+        Icon(
+          action: 'click->hello#togglePopup',
+          class_name: 'cursor-pointer',
+          icon: :close
+        )
+      }+
+
+      Text(
+        class_name: "text-xs text-stone-500 mt-1 mb-4",
+        text: 'Create new movie or not...'
+      )+
+
+      Form(action: '/movies', method: :post) do
+        Input(
+          class_name: 'mt-4',
+          label: 'Title',
+          name: 'movie[title]'
+        )+
+      
+        Row(class_name: 'flex justify-end') do
+          Button(
+            action: 'click->hello#togglePopup',
+            text: 'Discard',
+            var: 'outline',
+            class_name: 'mt-4 mr-4 cursor-pointer duration-200 text-right'
+          )+
+
+          Button(
+            text: 'Create',
+            class_name: 'mt-4 cursor-pointer duration-200 text-right',
+            type: :submit
+          )
+        end
+      end
+    end %>
+  </div>
+
+  <%= Box do %>
+      <%= Row {
+        Text(
+          class_name: "font-semibold text-2xl text-stone-800 flex-1",
+          text: 'Movies'
+        )+
+
+        Button(
+          text: 'Create',
+          action: 'click->hello#togglePopup',
+          size: :md,
+          # click: "togglePopup"
+        )
+      }+
+
+      Text(
+        class_name: 'text-xs text-stone-500 mt-1 mb-4',
+        text: 'All movies are listed here...'
+      ) %>
+
+
+          <table class="bg-white p-4 rounded w-full text-left mt-4">
+      <thead class="">
+        <th class="px-4 py-2 border-b">ID</th>
+        <th class="px-4 py-2 border-b">Title</th>
+        <th class="px-4 py-2 border-b">Action</th>
+      </thead>
+      <tbody class="">
+        <% @movies.each do |movie| %>
+          <tr class="">
+            <th class="px-4 py-2 border-b font-normal w-10"><%= movie.id %></th>
+            <th class="px-4 py-2 border-b font-normal w-full"><%= movie.title %></th>
+            <th class="px-4 py-2 border-b font-normal flex">
+              <%= IconButton(
+                icon: :edit,
+                class_name: 'text-stone-900 cursor-pointer duration-200 hover:text-rose-900'
+              ) %>
+
+              <%= ui :form, action: "/movies/#{movie.id}", method: :delete do %>
+                <%= IconButton(
+                  icon: :delete,
+                  class_name: 'text-rose-700 cursor-pointer duration-200 hover:text-rose-900'
+                ) %>
+              <% end %>
+            </th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+   <% end %>
+<% end %>
+
+
+<%=
+Controller(name: :hello) do
+
+  end
+%>
+
+
+ 

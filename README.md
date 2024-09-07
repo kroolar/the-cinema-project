@@ -25,4 +25,11 @@ Things you may want to cover:
 
 
 - Initial Commit
-- Add Docker Image
+- Add Workflows
+- Add Dashboard page
+- Add Devise
+- Add View Components
+- Configure View Components
+- Add Components
+- Add Devise Page Views
+- Add Dashboard scaffold
