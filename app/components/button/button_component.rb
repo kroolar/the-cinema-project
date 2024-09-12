@@ -1,21 +1,14 @@
-class Button::ButtonComponent < ViewComponent::Base
-  attr_reader :controller, :action
+class Button::ButtonComponent < ApplicationComponent
+  attr_reader :action
 
-  def initialize(
-    class_name: '',
-    size: :md,
-    text: nil,
-    var: :primary,
-    type: :button,
-    controller: nil,
-    action: nil
-  )
-    @class_name = class_name
-    @size = size
-    @text = text
-    @var = var
-    @type = type.to_s
-    @controller = controller
-    @action = action
+  def initialize(**args)
+    super(**args)
+
+    @class_name = args[:class_name]
+    @size = args[:size] || :md
+    @text = args[:text]
+    @var = args[:var]
+    @type = args[:type]&.to_s || 'button'
+    @click = args[:click]
   end
 end

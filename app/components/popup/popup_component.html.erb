@@ -1,0 +1,14 @@
+<div
+  <%= target? && "data-#{target_controller}-target=#{target_name}"%>
+  data-hello-target="popup"
+  class="hidden"
+>
+  <div
+    class="bg-black absolute opacity-50 h-screen w-screen left-0 top-0 z-50"
+    data-action='click->hello#togglePopup'
+  ></div>
+
+  <div class="absolute w-[20rem] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+    <%= content %>
+  </div>
+</div>

@@ -4,8 +4,7 @@
   shadow-sm
 "
   type="<%= @type %>"
-  data-controller="<%= controller %>"
-  data-action="<%= action %>"
+  <%= click? && "data-action=click->#{click}" %>
   >
   <%= @text || content %>
 </button>
