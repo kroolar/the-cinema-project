@@ -1,44 +1,42 @@
-<%=
-  Box(
-    class_name: 'w-96 mx-auto mt-40',
-    title: "Sign Up",
-    description: "Enter details below to create your account."
-  ) {
-    Form(action: user_registration_path) {
-      Input(
-        class_name: 'mt-4',
-        label: 'Email',
-        name: 'user[email]'
-      )+
-
-      Input(
-        class_name: 'mt-2 mb-1',
-        label: 'Password',
-        name: 'user[password]',
-        type: 'password'
-      )+
-
-      Input(
-        class_name: 'mt-2 mb-4',
-        label: 'Password Confirmation',
-        name: 'user[password_confirmation]',
-        type: 'password'
-      )+
-
-      Button(
-        class_name: 'w-full',
-        text: 'Sign Up',
-        type: :submit
-      )+
-
-      Row(class_name: 'mt-4 flex items-center justify-center') {
-        Text(
-          text: "Already have an account?",
-          class_name: 'text-gray-600 text-sm font-light mr-1'
-        )+
-
-        Link(href: new_user_session_path, text: 'Sign In')
-      }
-    }
-  }
+<%= ui :box,
+  class_name: 'w-96 mx-auto mt-40',
+  title: "Sign Up",
+  description: "Enter details below to create your account." do
 %>
+  <%= ui :form, action: user_registration_path do %>
+    <%= ui :input,
+      class_name: 'mt-4',
+      label: 'Email',
+      name: 'user[email]'
+    %>
+
+    <%= ui :input,
+      class_name: 'mt-2 mb-1',
+      label: 'Password',
+      name: 'user[password]',
+      type: 'password'
+    %>
+
+    <%= ui :input,
+      class_name: 'mt-2 mb-4',
+      label: 'Password Confirmation',
+      name: 'user[password_confirmation]',
+      type: 'password'
+    %>
+
+    <%= ui :button,
+      class_name: 'w-full',
+      text: 'Sign Up',
+      type: :submit
+    %>
+
+    <%= ui :row, class_name: 'mt-4 flex items-center justify-center' do %>
+      <%= ui :text,
+        text: "Already have an account?",
+        class_name: 'text-gray-600 text-sm font-light mr-1'
+      %>
+
+      <%= ui :link, href: new_user_session_path, text: 'Sign In' %>
+    <% end %>
+  <% end %>
+<% end %>
