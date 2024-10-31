@@ -1,0 +1,19 @@
+<table class="p-4 rounded w-full text-left mt-4">
+  <thead>
+    <% columns.each do |column| %>
+      <th class="px-4 py-2 border-b"><%= column[:name].to_s.humanize%></th>
+    <% end %>
+  </thead>
+
+  <tbody class="">
+    <% data.each do |row| %>
+      <tr class="">
+        <% columns.each do |column| %>
+          <th class="px-4 py-2 border-b font-normal">
+            <%= row.send(column[:name]) %>
+          </th>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
