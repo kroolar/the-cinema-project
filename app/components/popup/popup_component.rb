@@ -1,14 +1,9 @@
 class Popup::PopupComponent < ApplicationComponent
-  # attr_reader :columns, :collection, :title, :description, :actions
+  attr_reader :on_close
 
   def initialize(**args)
     super(**args)
 
-    # @collection = collection
-    # @columns = []
-    # @title = args[:title]
-    # @description = args[:description]
-    # @actions = args[:actions]
-    # @click = args[:click]
+    @on_close = args[:on_close]
   end
 end
