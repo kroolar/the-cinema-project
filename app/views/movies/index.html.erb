@@ -12,6 +12,17 @@
       List of all Movies...
     </div>
 
+    <%= ui :target, class_name: 'hidden', target: "movies#popup" do %>
+      <%= ui :popup, on_close: "movies#togglePopup" do %>
+        <%= ui :form, action: '/movies' do %>
+          <%= ui :box, title: 'Create Movie', description: 'Fill in the gaps...' do %>
+            <%= ui :input, label: 'Title', name: 'movie[title]', class_name: 'mt-4' %>
+            <%= ui :button, text: 'Create', class_name: 'w-full mt-4', type: :submit %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
     <%= ui :table, data: Movie.all do |t| %>
       <% t.number :id, size: 1 %>
       <% t.text :title, size: 11 %>
